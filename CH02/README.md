@@ -110,7 +110,41 @@ $$
 $$
 合在一起的这个叫做扩充权重向量，书上有提到。
 
-下证经过有限次的迭代可以得到一个
+下证对于可分的训练集, 经过有限次的迭代可以得到一个结果.
+
+设一个符合条件的超平面为
+$$
+\hat{w}_{\mathrm{opt}} \cdot \hat{x}=\mathrm{w}_{\mathrm{opt}} \cdot  x+\mathrm{b}_{\mathrm{opt}}=0
+$$
+其中 $||w_{opt}||=1$, 并设
+$$
+R=\max _{1 \leqslant i \leqslant N}\left\|\hat{x}_{i}\right\|\\
+\gamma=\min _{i}\left\{y_{i}\left(w_{\mathrm{opt}} \cdot x_{i}+b_{\mathrm{opt}}\right)\right\}
+$$
+若进行第k次迭代是可行的, 
+$$
+\begin{array}{l}{w_{k} \leftarrow w_{k-1}+\eta y_{i} x_{i}} \\ {b_{k} \leftarrow b_{k-1}+\eta y_{i}}\end{array}
+$$
+注意到
+$$
+\begin{aligned} \hat{w}_{k} \cdot \hat{w}_{\mathrm{opt}} &=\hat{w}_{k-1} \cdot \hat{w}_{\mathrm{opt}}+\eta y_{i} \hat{w}_{\mathrm{opt}} \cdot \hat{x}_{i} \\ & \geqslant \hat{w}_{k-1} \cdot \hat{w}_{\mathrm{opt}}+\eta \gamma \end{aligned}
+$$
+递推得到
+$$
+\hat{w}_{k} \cdot \hat{w}_{\mathrm{opt}} \ge k \eta \gamma 
+$$
+类似地
+$$
+\left\|\hat{w}_{k}\right\|^{2}=\left\|\hat{w}_{k-1}\right\|^{2}+2 \eta y_{i} \hat{w}_{k-1} \cdot \hat{x}_{i}+\eta^{2}\left\|\hat{x}_{i}\right\|^{2}\le \left\|\hat{w}_{k-1}\right\|^{2}+\eta^2 R^2
+$$
+递推得到
+$$
+\left\|\hat{w}_{k}\right\|^{2}\le k\eta^2 R^2
+$$
+于是
+$$
+k \leqslant\left(\frac{R}{\gamma}\right)^{2}
+$$
 
 #### 对偶形式
 
