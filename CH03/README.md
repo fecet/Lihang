@@ -72,8 +72,9 @@ $k=1$的情形，称为最近邻算法。书中后面的分析都是按照最近
 1. 任意$p$ 对应 闵可夫斯基距离
 1. $p=\infty$ 对应 切比雪夫距离
 
-
-$$L_p(x_i, x_j)=\left(\sum_{l=1}^{n}{\left|x_{i}^{(l)}-x_{j}^{(l)}\right|^p}\right)^{\frac{1}{p}}$$
+$$
+L_p(x_i, x_j)=\left(\sum_{l=1}^{n}{\left|x_{i}^{(l)}-x_{j}^{(l)}\right|^p}\right)^{\frac{1}{p}}
+$$
 
 ![fig3_2](assets/fig3_2.png)
 
@@ -105,8 +106,9 @@ Majority Voting Rule
 
 误分类率
 
-$\frac{1}{k}\sum_{x_i\in N_k(x)}{I(y_i\ne c_i)}=1-\frac{1}{k}\sum_{x_i\in N_k(x)}{I(y_i= c_i)}$
-
+$$
+\frac{1}{k}\sum_{x_i\in N_k(x)}{I(y_i\ne c_i)}=1-\frac{1}{k}\sum_{x_i\in N_k(x)}{I(y_i= c_i)}
+$$
 如果分类损失函数是0-1损失，误分类率最低即经验风险最小。
 
 关于经验风险，参考书上[CH01](../CH01/README.md)第一章 (1.11)和(1.16)
